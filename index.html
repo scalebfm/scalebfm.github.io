@@ -1974,6 +1974,10 @@
       transform: translateX(-707px);
     }
 
+    .scaling-matrix-scroll {
+      width: 100%;
+    }
+
     .scaling-column-label,
     .scaling-row-label {
       color: #dceafd;
@@ -2061,7 +2065,7 @@
     .latent-analysis {
       width: 100%;
       max-width: 920px;
-      margin: 76px auto 86px;
+      margin: 76px auto 36px;
       scroll-margin-top: 86px;
     }
 
@@ -2147,8 +2151,12 @@
     .conclusion-section {
       width: 100%;
       max-width: 1000px;
-      margin: 76px auto 40px;
+      margin: 36px auto 32px;
       scroll-margin-top: 86px;
+    }
+
+    .bibtex-section {
+      margin-top: 36px;
     }
 
     .pi-shell .conclusion-section h2 {
@@ -2262,6 +2270,82 @@
       border-top: 1px solid rgba(129, 243, 255, 0.18);
     }
 
+    .bibtex-block {
+      margin: 0;
+      padding: 22px 24px;
+      overflow-x: auto;
+      border: 1px solid rgba(129, 243, 255, 0.18);
+      border-radius: 18px;
+      background: rgba(3, 8, 18, 0.72);
+      color: #cfe5ff;
+      font: 0.82rem/1.65 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      scrollbar-color: rgba(129, 243, 255, 0.24) transparent;
+      scrollbar-width: thin;
+      white-space: pre;
+    }
+
+    .bibtex-block::-webkit-scrollbar {
+      height: 7px;
+      background: transparent;
+    }
+
+    .bibtex-block::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .bibtex-block::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(129, 243, 255, 0.24);
+    }
+
+    .bibtex-container {
+      position: relative;
+      margin-top: 26px;
+    }
+
+    .bibtex-copy {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 1;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      padding: 7px;
+      place-items: center;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .bibtex-copy:hover,
+    .bibtex-copy:focus-visible {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+    }
+
+    .bibtex-copy svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .bibtex-copy .copy-check,
+    .bibtex-copy.is-copied .copy-icon {
+      display: none;
+    }
+
+    .bibtex-copy.is-copied .copy-check {
+      display: block;
+      color: var(--teal);
+    }
+
     .site-footer {
       display: flex;
       width: 100%;
@@ -2293,6 +2377,284 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .pi-shell {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        padding: 74px 16px 32px;
+        zoom: 1;
+      }
+
+      .article-link-bar {
+        top: 8px;
+        width: calc(100vw - 16px);
+        min-height: 52px;
+        padding: 6px 8px;
+      }
+
+      .article-link-brand,
+      .article-link-actions a span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .article-link-actions {
+        width: 100%;
+        justify-content: space-evenly;
+      }
+
+      .article-link-actions a {
+        min-width: 44px;
+        min-height: 40px;
+        padding: 8px 12px;
+        justify-content: center;
+      }
+
+      .hero-header {
+        gap: 14px;
+        padding: 4px 0 34px;
+      }
+
+      .pi-shell .hero-title {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(1.3rem, 6.6vw, 2.4rem);
+        line-height: 1.08;
+        transform: none;
+      }
+
+      .pi-shell .title-line,
+      .pi-shell .title-line-primary {
+        white-space: normal;
+      }
+
+      .pi-shell .title-accent {
+        white-space: nowrap;
+      }
+
+      .hero-status {
+        font-size: 1.2rem;
+      }
+
+      .hero-authors {
+        gap: 6px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .hero-author-line,
+      .hero-affiliation-line {
+        gap: 5px 12px;
+      }
+
+      .hero-affiliations {
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+
+      .hero-actions {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 7px;
+      }
+
+      .hero-button {
+        min-width: auto;
+        min-height: 38px;
+        padding: 0 11px;
+        gap: 6px;
+        font-size: 0.76rem;
+      }
+
+      .hero-button .link-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .overview-static-figure,
+      .pi-shell .dataset-visualization,
+      .pi-shell .scaling-summary {
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+      }
+
+      .paper-figure {
+        margin-top: 24px;
+        margin-bottom: 32px;
+        border-radius: 14px;
+      }
+
+      .overview-static-figure {
+        overflow-x: auto;
+      }
+
+      .pi-shell .overview-abstract,
+      .gallery-section,
+      .scaling-section,
+      .latent-analysis,
+      .conclusion-section {
+        max-width: 100%;
+      }
+
+      .pi-shell .overview-abstract h2,
+      .pi-shell .gallery-section > h2,
+      .pi-shell .scaling-section > h2,
+      .pi-shell .latent-analysis > h2,
+      .pi-shell .conclusion-section h2 {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+      }
+
+      .overview-abstract p,
+      .pi-shell .scaling-summary,
+      .pi-shell .conclusion-section p {
+        font-size: 0.98rem;
+        line-height: 1.68;
+      }
+
+      .gallery-section {
+        margin-bottom: 48px;
+        padding-top: 22px;
+      }
+
+      .gallery-row h3 {
+        font-size: 1.05rem;
+      }
+
+      .gallery-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .gallery-arrow-prev {
+        left: 8px;
+      }
+
+      .gallery-arrow-next {
+        right: 8px;
+      }
+
+      .figure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pi-shell .dataset-visualization {
+        margin-top: 40px;
+        padding-bottom: 28px;
+      }
+
+      .scaling-section {
+        margin: 48px auto;
+      }
+
+      .scaling-matrix-scroll {
+        padding-bottom: 12px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-color: rgba(129, 243, 255, 0.25) transparent;
+        scrollbar-width: thin;
+      }
+
+      .scaling-matrix-scroll::-webkit-scrollbar {
+        height: 7px;
+        background: transparent;
+      }
+
+      .scaling-matrix-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .scaling-matrix-scroll::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: rgba(129, 243, 255, 0.25);
+      }
+
+      .scaling-matrix {
+        left: auto;
+        width: 710px;
+        grid-template-columns: 90px repeat(2, 292px);
+        gap: 14px 12px;
+        transform: none;
+      }
+
+      .scaling-column-label {
+        font-size: 0.86rem;
+      }
+
+      .scaling-row-label {
+        padding-right: 4px;
+        font-size: 0.76rem;
+      }
+
+      .scaling-matrix figure:hover,
+      .scaling-matrix figure:focus-within,
+      .scaling-matrix figure:hover img,
+      .scaling-matrix figure:focus-within img {
+        transform: none;
+      }
+
+      .pi-shell .scaling-summary {
+        margin-top: 22px;
+        padding: 16px 18px;
+      }
+
+      .latent-analysis {
+        margin-top: 48px;
+      }
+
+      .latent-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .latent-grid > :nth-child(1) { order: 1; }
+      .latent-grid > :nth-child(3) { order: 2; }
+      .latent-grid > :nth-child(5) { order: 3; }
+      .latent-grid > :nth-child(2) { order: 4; margin-top: 16px; }
+      .latent-grid > :nth-child(4) { order: 5; }
+      .latent-grid > :nth-child(6) { order: 6; }
+
+      .latent-panel iframe {
+        height: min(82vw, 360px);
+      }
+
+      .latent-legend {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 8px;
+        padding: 16px 12px;
+      }
+
+      .latent-legend-item {
+        padding-left: 0;
+        font-size: 0.76rem;
+      }
+
+      .conclusion-section {
+        margin-top: 32px;
+      }
+
+      .bibtex-block {
+        padding: 18px 52px 18px 16px;
+        font-size: 0.72rem;
+      }
+
+      .site-footer {
+        margin-top: 48px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2315,6 +2677,10 @@
       <a href="assets/paper/paper.pdf" target="_blank" rel="noreferrer">
         <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6z" fill="none" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v5h5M9 12h6M9 16h6" fill="none" stroke-width="1.8" stroke-linecap="round"/></svg>
         <span>Paper</span>
+      </a>
+      <a href="https://arxiv.org/abs/2607.15163" target="_blank" rel="noreferrer">
+        <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" fill="none" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" fill="none" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span>arXiv</span>
       </a>
       <a href="https://www.xiaohongshu.com/explore/6a09edea0000000035028c5b?xsec_token=ABH8oghbHcH2fNNBMADZqhtxgpl-LFurszG3iSreVR9B8=&amp;xsec_source=pc_user" target="_blank" rel="noreferrer">
         <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke-width="1.8"/><path d="m10 9 5 3-5 3z" stroke="none"/></svg>
@@ -2397,6 +2763,10 @@
             <a class="hero-button" href="assets/paper/paper.pdf" target="_blank" rel="noreferrer">
               <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6z" fill="none" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v5h5M9 12h6M9 16h6" fill="none" stroke-width="1.8" stroke-linecap="round"/></svg>
               <span>Paper</span>
+            </a>
+            <a class="hero-button" href="https://arxiv.org/abs/2607.15163" target="_blank" rel="noreferrer">
+              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" fill="none" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" fill="none" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>arXiv</span>
             </a>
             <a class="hero-button" href="https://www.xiaohongshu.com/explore/6a09edea0000000035028c5b?xsec_token=ABH8oghbHcH2fNNBMADZqhtxgpl-LFurszG3iSreVR9B8=&amp;xsec_source=pc_user" target="_blank" rel="noreferrer">
               <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke-width="1.8"/><path d="m10 9 5 3-5 3z" stroke="none"/></svg>
@@ -2697,6 +3067,7 @@
         <section class="scaling-section scaling-on-policy" id="scaling-on-policy" aria-labelledby="scaling-on-policy-heading">
           <h2 id="scaling-on-policy-heading">Scaling On-policy Data</h2>
 
+          <div class="scaling-matrix-scroll">
           <div class="scaling-matrix" role="table" aria-label="Scaling on-policy data collection across control modes and test sets">
             <div aria-hidden="true"></div>
             <div class="scaling-column-label" role="columnheader">BONES Test Set</div>
@@ -2734,6 +3105,7 @@
               <img data-src="assets/figures/scaling_on_policy/Ours_Whole-Body_Mode_web.png" alt="Scaling on-policy data collection on the Ours Test Set under Whole-Body Mode" decoding="async">
             </figure>
           </div>
+          </div>
 
           <p class="scaling-summary">Jointly scaling the <em>width</em> (parallel environments) and <em>depth</em> (rollout horizon) of on-policy data collection consistently improves BFM performance across diverse control modes and test sets, with the largest configuration achieving the strongest overall results. These gains likely arise from larger amounts of on-policy experience, which yield more reliable PPO optimization. In contrast, scaling either dimension alone does not consistently improve performance, suggesting that effective on-policy scaling requires a balanced increase in both <em>width</em> and <em>depth</em> rather than expanding either dimension in isolation.</p>
         </section>
@@ -2746,6 +3118,7 @@
             <figcaption>We construct a large-scale human motion dataset by aggregating over 102 million frames at 50 FPS from multiple sources, which are subsequently retargeted to the target humanoid.</figcaption>
           </figure>
 
+          <div class="scaling-matrix-scroll">
           <div class="scaling-matrix" role="table" aria-label="Scaling reference motions across control modes and test sets">
             <div aria-hidden="true"></div>
             <div class="scaling-column-label" role="columnheader">BONES Test Set</div>
@@ -2783,6 +3156,7 @@
               <img data-src="assets/figures/scaling_reference/Ours_Whole-Body_Mode_web.png" alt="Scaling reference motions on the Ours Test Set under Whole-Body Mode" decoding="async">
             </figure>
           </div>
+          </div>
 
           <p class="scaling-summary">Scaling reference motions exhibits two distinct regimes. Homogeneous scaling, which increases the amount of in-domain data without substantially expanding behavioral coverage, provides only marginal performance improvements. In contrast, heterogeneous scaling, which introduces diverse data sources and significantly expands behavioral coverage, yields substantial gains on out-of-domain benchmarks while offering little additional benefit on in-domain evaluation. These results suggest that the effectiveness of reference-motion scaling depends not only on data quantity but also on behavioral coverage and its relevance to the target tasks, highlighting diverse behavioral patterns as a strong foundation for BFM pretraining.</p>
         </section>
@@ -2795,6 +3169,7 @@
             <figcaption>We introduce an expressive and scalable architecture termed the <em>Humanoid Transformer</em>, which facilitates the natural emergence of structured behavioral representations.</figcaption>
           </figure>
 
+          <div class="scaling-matrix-scroll">
           <div class="scaling-matrix" role="table" aria-label="Scaling model architecture across control modes and test sets">
             <div aria-hidden="true"></div>
             <div class="scaling-column-label" role="columnheader">BONES Test Set</div>
@@ -2831,6 +3206,7 @@
             <figure>
               <img data-src="assets/figures/scaling_model/Ours_Whole-Body_Mode_web.png" alt="Scaling model architecture on the Ours Test Set under Whole-Body Mode" decoding="async">
             </figure>
+          </div>
           </div>
 
           <p class="scaling-summary">The proposed Humanoid Transformer consistently outperforms the conventional MLP across diverse control modes, with a medium-sized Transformer already matching or exceeding the performance of a substantially larger MLP. These results demonstrate that a more expressive architecture provides a stronger backbone for BFM pretraining by utilizing model capacity more effectively. Nevertheless, scaling the Transformer exhibits diminishing returns and mode-dependent saturation, suggesting that performance is increasingly limited by optimization trade-offs across control modes rather than model capacity alone.</p>
@@ -2875,6 +3251,22 @@
         <section class="conclusion-section" id="conclusion" aria-labelledby="conclusion-heading">
           <h2 id="conclusion-heading">Conclusion</h2>
           <p>In this paper, we present a systematic investigation of the scaling behavior of Behavior Foundation Models for humanoid robots by revisiting three fundamental aspects: the learning paradigm, behavioral data, and model architecture. Through extensive empirical studies, we derive an effective scaling recipe that yields substantial improvements in control fidelity, execution robustness, and generalization capability. Nevertheless, the proposed framework has its limitations. Although we curate a unified control interface with diverse control modes, it remains unclear whether this interface is the most appropriate abstraction and how these modes should be integrated with future high-level policies. Consequently, the design of BFMs should continue to evolve alongside advances in high-level policy learning. Moreover, the current infrastructure for BFM pretraining remains relatively preliminary and constrained, limiting its scalability to broader settings. We hope that this work provides a foundation for systematic development of BFMs, ultimately contributing to the realization of general-purpose humanoid intelligence.</p>
+        </section>
+
+        <section class="conclusion-section bibtex-section" id="bibtex" aria-labelledby="bibtex-heading">
+          <h2 id="bibtex-heading">BibTeX</h2>
+          <div class="bibtex-container">
+            <button class="bibtex-copy" type="button" aria-label="Copy BibTeX citation" title="Copy BibTeX">
+              <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              <svg class="copy-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+            </button>
+            <pre class="bibtex-block"><code>@article{zeng2026scaling,
+  title={Scaling Behavior Foundation Model for Humanoid Robots},
+  author={Zeng, Weishuai and Yin, Kangning and Niu, Xiaojie and Lu, Shunlin and Zhong, Weixiang and Chen, Jiahe and Jia, Feiyu and Chen, Xiao and Wang, Zirui and Xu, Furui and Zhou, Ming and Li, Kailin and Zhang, Weinan and Wang, He and Yi, Li and Lin, Dahua and Pang, Jiangmiao and Wang, Jingbo},
+  journal={arXiv preprint arXiv:2607.15163},
+  year={2026}
+}</code></pre>
+          </div>
         </section>
 
         <section class="prose" id="method">
@@ -4179,6 +4571,13 @@
       const articleTitle = document.querySelector(".hero-title");
 
       const syncArticleScale = () => {
+        if (window.innerWidth <= 768) {
+          document.documentElement.style.setProperty("--article-scale", "1");
+          document.documentElement.style.setProperty("--article-left", "0px");
+          articleTitle?.style.setProperty("--title-center-offset", "0px");
+          return;
+        }
+
         const scale = Math.min(1, window.innerWidth / 1440);
         const left = Math.max(0, (window.innerWidth / scale - 1440) / 2 - 68);
         document.documentElement.style.setProperty("--article-scale", scale.toFixed(4));
@@ -4201,6 +4600,19 @@
       window.addEventListener("resize", syncArticleScale);
       syncArticleScale();
       document.fonts?.ready.then(syncArticleScale);
+
+      document.querySelectorAll(".latent-panel iframe").forEach((iframe) => {
+        const resizeLatentPlot = () => {
+          const iframeWindow = iframe.contentWindow;
+          const plot = iframe.contentDocument?.querySelector(".plotly-graph-div");
+          if (iframeWindow?.Plotly && plot) {
+            iframeWindow.Plotly.Plots.resize(plot);
+          }
+        };
+
+        iframe.addEventListener("load", resizeLatentPlot);
+        window.addEventListener("resize", resizeLatentPlot);
+      });
 
       const syncArticleTocVisibility = () => {
         if (!articleStart) {
@@ -4518,6 +4930,29 @@
       };
 
       initPageToc();
+
+      const bibtexCopyButton = document.querySelector(".bibtex-copy");
+      const bibtexCode = document.querySelector(".bibtex-block code");
+
+      if (bibtexCopyButton && bibtexCode) {
+        bibtexCopyButton.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(bibtexCode.textContent);
+            bibtexCopyButton.classList.add("is-copied");
+            bibtexCopyButton.setAttribute("aria-label", "BibTeX copied");
+            window.setTimeout(() => {
+              bibtexCopyButton.classList.remove("is-copied");
+              bibtexCopyButton.setAttribute("aria-label", "Copy BibTeX citation");
+            }, 1600);
+          } catch (error) {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(bibtexCode);
+            selection.removeAllRanges();
+            selection.addRange(range);
+          }
+        });
+      }
     })();
   </script>
 </body>
